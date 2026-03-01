@@ -71,18 +71,18 @@ def rule_based_dispatch(incident: str) -> dict:
     }
 
 
-def call_grok_dispatch(incident: str) -> dict:
-    if not GROK_API_KEY:
-        raise RuntimeError("GROK_API_KEY is not set")
+def G(incident: str) -> dict:
+    if not GEMINI_API_KEY:
+        raise RuntimeError("GEMINI_API_KEY is not set")
 
     response = requests.post(
         "https://api.x.ai/v1/chat/completions",
         headers={
-            "Authorization": f"Bearer {GROK_API_KEY}",
+            "Authorization": f"Bearer {GEMINI_API_KEY}",
             "Content-Type": "application/json",
         },
         json={
-            "model": GROK_MODEL,
+            "model": GEMINI_MODEL,
             "messages": [
                 {"role": "system", "content": SYSTEM_PROMPT.strip()},
                 {"role": "user", "content": f"Incident: {incident}"},
