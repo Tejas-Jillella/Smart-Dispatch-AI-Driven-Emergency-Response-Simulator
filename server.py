@@ -8,8 +8,8 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 CORS(app)
-GROK_API_KEY = os.environ.get("GROK_API_KEY")
-GROK_MODEL = os.environ.get("GROK_MODEL", "grok-4")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-1.5-flash")
 
 SYSTEM_PROMPT = """
 You are an emergency dispatch decision system for a smart city.
